@@ -1,20 +1,12 @@
 import React from 'react';
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import MessageIcon from '@material-ui/icons/Message';
-import FiberNewRoundedIcon from '@material-ui/icons/FiberNewRounded';
-import MusicNoteRoundedIcon from '@material-ui/icons/MusicNoteRounded';
-import SettingsApplicationsRoundedIcon from '@material-ui/icons/SettingsApplicationsRounded';
+import {Navigation} from "./components/Navigation/Navigation";
+import {Box} from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -47,8 +39,8 @@ const App = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
+    <Box className={classes.root}>
+      <CssBaseline/>
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" noWrap>
@@ -63,50 +55,16 @@ const App = () => {
           paper: classes.drawerPaper,
         }}
       >
-        <Toolbar />
-        <div className={classes.drawerContainer}>
-          <List>
-            <ListItem button>
-              <ListItemIcon>
-                <AccountBoxIcon />
-              </ListItemIcon>
-              <ListItemText primary={'Profile'} />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <MessageIcon />
-              </ListItemIcon>
-              <ListItemText primary={'Messages'} />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <FiberNewRoundedIcon />
-              </ListItemIcon>
-              <ListItemText primary={'News'} />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <MusicNoteRoundedIcon />
-              </ListItemIcon>
-              <ListItemText primary={'Music'} />
-            </ListItem>
-          </List>
-          <Divider />
-          <List>
-              <ListItem button>
-                <ListItemIcon>
-                  <SettingsApplicationsRoundedIcon />
-                </ListItemIcon>
-                <ListItemText primary={'Settings'} />
-              </ListItem>
-          </List>
-        </div>
+        <Toolbar/>
+        <Box className={classes.drawerContainer}>
+          <Navigation />
+        </Box>
       </Drawer>
       <main className={classes.content}>
-        <Toolbar />
+        <Toolbar/>
 
       </main>
-    </div>
+    </Box>
   );
 }
 
